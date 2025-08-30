@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression Model</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Simple Regression Model</h1>
+    
+    <form action="/predict" method="post">
+        <label for="x1">X1:</label>
+        <input type="number" step="any" name="x1" required>
+        
+        <label for="x2">X2:</label>
+        <input type="number" step="any" name="x2" required>
+        
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is defined %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
